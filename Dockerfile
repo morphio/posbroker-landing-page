@@ -10,6 +10,6 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN npm install --global pnpm@${PNPM_VERSION}
 COPY . /app
 WORKDIR /app
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN pnpm run build
-CMD pnpm run start
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store /pnpm/pnpm install --frozen-lockfile
+RUN /pnpm/pnpm run build
+CMD /pnpm/pnpm run start
