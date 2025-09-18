@@ -1,0 +1,123 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.feedbacksSlider {
+  user-select: none;
+
+  position: relative;
+
+  max-width: 454px;
+  margin: unset;
+  padding: 0 30px;
+
+  .feedbackCard {
+    width: 100%;
+    max-width: 371px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &:global {
+    &.swiper {
+      &.swiper-cards {
+        overflow: hidden;
+      }
+
+      .swiper-slide {
+        overflow: unset;
+        height: unset;
+        transition:
+          transform 0s,
+          opacity 0.2s ease;
+
+        &:not(.swiper-slide-prev, .swiper-slide-next, .swiper-slide-active) {
+          opacity: 0;
+        }
+      }
+
+      .swiper-pagination {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+
+        box-sizing: content-box;
+        height: 14px;
+        padding-top: 16px;
+      }
+
+      .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+
+        background: #cad0d9;
+        border-radius: 50%;
+
+        transition: 0.3s ease;
+
+        &:first-child,
+        &:last-child {
+          width: 6px;
+          height: 6px;
+        }
+
+        &.swiper-pagination-bullet-active {
+          width: 14px;
+          height: 14px;
+          background: #ff4e00;
+        }
+      }
+    }
+
+    & > .swiper-wrapper {
+      align-items: stretch;
+    }
+  }
+}
+
+.navigation {
+  position: absolute;
+  z-index: 200;
+  top: 50%;
+  left: 0;
+  transform: translateY(50%);
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 0 19px;
+}
+
+.nav {
+  cursor: pointer;
+
+  transform: rotate(90deg);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  background: #fff;
+  border: 1px solid #dee2e8;
+  border-radius: 50%;
+
+  &:last-child {
+    transform: rotate(-90deg);
+  }
+
+  @include mixins.useOnlyForMouse {
+    transition: 0.2s ease;
+
+    &:hover {
+      color: var(--color-text-brand);
+    }
+  }
+}
+
+.navIcon {
+  width: 24px;
+  height: 24px;
+}

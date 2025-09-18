@@ -1,0 +1,45 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.appSection {
+  padding: 52px 0;
+  background: var(--color-background-primary, #fff);
+
+  @include mixins.useBreakpoint('desktop') {
+    padding: 100px 0;
+  }
+}
+
+._transparent {
+  background: initial;
+}
+
+.container {
+  @include mixins.useContainer;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+
+  @include mixins.useBreakpoint('desktop') {
+    gap: 80px;
+  }
+}
+
+.title {
+  width: 100%;
+  margin: 0;
+
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 42px;
+  text-align: center;
+  letter-spacing: -0.72px;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    letter-spacing: -1.12px;
+  }
+}

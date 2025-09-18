@@ -1,0 +1,162 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.appFooter {
+  padding: 40px 0;
+  /* stylelint-disable-next-line custom-property-pattern */
+  background: var(--Footer-BG, #1a1a1a);
+
+  @include mixins.useBreakpoint('desktop') {
+    padding: 120px 0 80px;
+  }
+}
+
+.container {
+  @include mixins.useContainer;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.appLogo {
+  grid-area: logo;
+  width: 100%;
+  max-width: 98px;
+  color: #fff;
+}
+
+.line {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: space-between;
+
+  margin-top: 25px;
+
+  @include mixins.useBreakpoint('desktop') {
+    flex-direction: initial;
+    gap: 0;
+    align-items: flex-end;
+  }
+}
+
+.contactsBox {
+  display: flex;
+  grid-area: contacts;
+  flex-direction: column;
+  gap: var(--spacing-400);
+
+  @include mixins.useBreakpoint('desktop') {
+    text-align: end;
+  }
+}
+
+.contactsTitle {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(255 255 255 / 0.65);
+  letter-spacing: -0.32px;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.36px;
+  }
+}
+
+.email,
+.phone {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #fafafa;
+
+  transition: color 0.2s ease;
+
+  @include mixins.useOnlyForMouse {
+    &:hover {
+      color: var(--color-text-utility-orange);
+    }
+  }
+}
+
+.secondLine {
+  flex-direction: column-reverse;
+
+  margin-top: 48px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgb(255 255 255 / 0.56);
+
+  @include mixins.useBreakpoint('desktop') {
+    flex-direction: initial;
+    align-items: center;
+
+    margin-top: 80px;
+
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.32px;
+  }
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  @include mixins.useBreakpoint('desktop') {
+    flex-direction: initial;
+    gap: 48px;
+    align-items: center;
+  }
+}
+
+.link {
+  transition: color 0.2s ease;
+
+  @include mixins.useOnlyForMouse {
+    &:hover {
+      color: var(--color-text-utility-orange);
+    }
+  }
+}
+
+.infoBox {
+  display: grid;
+  grid-template-areas:
+    'logo'
+    'menu'
+    'contacts'
+    'social-media';
+  gap: var(--space-32);
+
+  @include mixins.useBreakpoint('desktop') {
+    grid-template-areas:
+      'logo contacts'
+      'menu social-media';
+    gap: var(--space-24);
+  }
+}
+
+.footerMenuContainer {
+  grid-area: menu;
+  align-self: center;
+}
+
+.socialMediaContainer {
+  grid-area: social-media;
+  align-self: center;
+
+  @include mixins.useBreakpoint('desktop') {
+    justify-self: end;
+  }
+}

@@ -1,0 +1,31 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.orderFlow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  @include mixins.useBreakpoint('desktop') {
+    gap: 0;
+    align-items: start;
+    justify-content: space-between;
+  }
+}
+
+.circleInfoBox {
+  @include mixins.useBreakpoint('desktop') {
+    flex: 1;
+  }
+}
+
+.arrow {
+  display: none;
+
+  @include mixins.useBreakpoint('desktop') {
+    display: block;
+  }
+}

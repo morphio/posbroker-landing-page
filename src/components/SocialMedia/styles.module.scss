@@ -1,0 +1,26 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.socialMedia {
+  display: flex;
+  gap: var(--spacing-800);
+
+  @include mixins.useBreakpoint('desktop') {
+    gap: var(--spacing-1000);
+  }
+}
+
+.icon {
+  transition: fill 0.2s easy;
+
+  path {
+    transition: fill 0.2s easy;
+  }
+
+  &:hover {
+    fill: var(--color-icon-brand);
+
+    path {
+      fill: var(--color-icon-brand);
+    }
+  }
+}

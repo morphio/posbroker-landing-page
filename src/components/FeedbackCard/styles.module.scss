@@ -1,0 +1,78 @@
+.feedbackCard {
+  display: flex;
+
+  height: 100%;
+  padding-top: 20px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.shadowWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+
+  height: 100%;
+
+  border-radius: 40px;
+  box-shadow: 0 10px 31.766px 0 rgb(0 0 0 / 0.06);
+}
+
+.topBox {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  height: 227px;
+
+  background: var(--card-bg-color);
+  border-radius: 40px 40px 0 0;
+}
+
+.image {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+
+  width: auto;
+  max-width: 100%;
+  height: calc(100% + 20px);
+}
+
+.bottomBox {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  align-items: flex-start;
+
+  padding: 24px 24px 24px 16px;
+
+  background: #fff;
+  border-radius: 0 0 40px 40px;
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: space-between;
+
+  height: 100%;
+}
+
+.quotesIcon {
+  flex-shrink: 0;
+  width: 18px;
+}
+
+.feedback {
+  white-space: pre-line;
+}
+
+.line {
+  line-height: var(--typography-web-label-md-line-height);
+  color: var(--color-text-secondary);
+}

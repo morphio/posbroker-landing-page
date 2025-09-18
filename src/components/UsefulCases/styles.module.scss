@@ -1,0 +1,25 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.usefulCases {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.infoBox {
+  width: 100%;
+
+  @include mixins.useBreakpoint('auto') {
+    flex-wrap: nowrap;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @include mixins.useBreakpoint('tablet') {
+    flex-wrap: nowrap;
+  }
+}

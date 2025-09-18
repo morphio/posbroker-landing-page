@@ -1,0 +1,17 @@
+.financialOrganizations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiperSlide {
+  width: max-content;
+  height: auto;
+}

@@ -1,0 +1,32 @@
+.ratingNumber {
+  font-weight: 700;
+}
+
+.value {
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -1.12px;
+}
+
+.max {
+  font-size: 36px;
+  line-height: 42px;
+  color: var(--color-text-secondary);
+  letter-spacing: -0.72px;
+}
+
+.big {
+  .value {
+    font-size: 90px;
+    font-weight: 800;
+    line-height: 94px;
+    letter-spacing: -1.8px;
+  }
+
+  .max {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    letter-spacing: -1.12px;
+  }
+}

@@ -1,0 +1,85 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.appHeader {
+  transition: 0.2s ease;
+
+  @include mixins.useBreakpoint('desktop') {
+    margin-top: 24px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: var(--space-16);
+
+  background: #fff;
+
+  transition: 0.2s ease;
+
+  @include mixins.useBreakpoint('desktop') {
+    padding: var(--space-16) var(--space-20);
+    border-radius: var(--border-radius-500);
+  }
+}
+
+.stickyActive {
+  background: var(--color-background-secondary);
+
+  .wrapper {
+    background: var(--color-background-secondary);
+  }
+}
+
+.container {
+  @include mixins.useBreakpoint('desktop') {
+    @include mixins.useContainer;
+  }
+}
+
+.leftBox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+// Increase the specificity of the class because of order of the styles
+button.burgerBtn {
+  @include mixins.useBreakpoint('desktop') {
+    display: none;
+  }
+}
+
+.menuIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.appLogo {
+  width: 76px;
+}
+
+.menu {
+  display: none;
+
+  @include mixins.useBreakpoint('desktop') {
+    display: block;
+  }
+}
+
+.rightBox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.lkButton {
+  width: 132px;
+
+  @include mixins.useBreakpoint('desktop') {
+    width: 143px;
+  }
+}

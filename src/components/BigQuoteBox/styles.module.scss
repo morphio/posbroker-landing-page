@@ -1,0 +1,106 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.bigQuoteBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 20px;
+
+  background: var(--color-background-secondary);
+  border-radius: 24px;
+
+  @include mixins.useBreakpoint('desktop') {
+    gap: 60px;
+    padding: 80px;
+    border-radius: 40px;
+  }
+}
+
+.topBox {
+  display: flex;
+  gap: 10px;
+}
+
+.leftBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include mixins.useBreakpoint('desktop') {
+    gap: 40px;
+  }
+}
+
+.text {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.4px;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 58px;
+  }
+}
+
+.unionSvg {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+
+  @include mixins.useBreakpoint('desktop') {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.bottomBox {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  @include mixins.useBreakpoint('desktop') {
+    gap: 32px;
+  }
+}
+
+.img {
+  width: 60px;
+  height: 60px;
+
+  @include mixins.useBreakpoint('desktop') {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.useBreakpoint('desktop') {
+    gap: 10px;
+  }
+}
+
+.name {
+  font-weight: 600;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+}
+
+.description {
+  font-weight: 400;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.56px;
+  }
+}

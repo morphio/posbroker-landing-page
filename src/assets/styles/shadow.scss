@@ -1,0 +1,26 @@
+$sizes: (
+  'xs': (
+    box-shadow: (
+      0px 1px 3px 0px var(--color-effect-shadow-subtle),
+      0px 2px 4px 0px var(--color-effect-shadow-moderate),
+    ),
+  ),
+  's': (
+    box-shadow: (
+      0px 2px 4px -2px var(--color-effect-shadow-subtlest),
+      0px 4px 16px -2px var(--color-effect-shadow-moderate),
+    ),
+  ),
+  'm': (
+    box-shadow: (
+      0px 2px 4px -2px var(--color-effect-shadow-moderate),
+      0px 4px 24px 0px var(--color-effect-shadow-moderate),
+    ),
+  ),
+  'l': (
+    box-shadow: (
+      0px 2px 4px -2px var(--color-effect-shadow-moderate),
+      0px 4px 32px 0px var(--color-effect-shadow-bold),
+    ),
+  ),
+);

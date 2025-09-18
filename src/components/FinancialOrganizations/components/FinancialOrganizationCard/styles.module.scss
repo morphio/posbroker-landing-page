@@ -1,0 +1,80 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.financialOrganizationCard {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+
+  width: 260px;
+  padding: 48px 40px 40px;
+
+  border: 1px solid #eeebe7;
+  border-radius: 20px;
+
+  &.mobile {
+    width: 208px;
+    padding: 40px 32px 32px;
+  }
+}
+
+.image {
+  width: max-content;
+  max-width: 100%;
+}
+
+.name {
+  overflow: hidden;
+
+  width: max-content;
+  max-width: 100%;
+
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  color: #1a1538;
+  text-overflow: ellipsis;
+  letter-spacing: 0;
+  white-space: nowrap;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+  }
+}
+
+.labelContainer {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 2px 8px;
+
+  background: var(--color-background-brand-primary);
+  border-radius: var(--border-radius-200);
+
+  @include mixins.useBreakpoint('desktop') {
+    padding: var(--spacing-150) var(--spacing-300);
+  }
+}
+
+.label {
+  font-family: var(--font-family-web, Inter);
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 20px;
+  color: var(--color-text-primary-inverse, #fff);
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 14px;
+  }
+}

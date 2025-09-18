@@ -1,0 +1,65 @@
+mr-release-prepare-envs:
+  stage: prepare
+  extends:
+    - .mr-release:rules:auto
+  script:
+    - echo "IMAGE_TAG=$(date +'%Y-%m-%d-%H-%M')-release" >> prepare-release.env
+    - echo "BUILD_ARG_NEXT_PUBLIC_RELEASE_DATE=$(date +'%Y-%m-%d-%H-%M')-release" >> prepare-release.env
+  artifacts:
+    reports:
+      dotenv: prepare-release.env
+
+mr-release-build:
+  stage: build
+  extends:
+    - .kaniko-build
+    - .mr-release:rules:auto
+  needs:
+    - job: mr-release-prepare-envs
+      artifacts: true
+
+mr-release-deploy-test:
+  manual_confirmation: 'Only QA users can deploy to the test environment'
+  stage: deploy
+  allow_failure: true
+  needs:
+    - job: mr-release-prepare-envs
+      artifacts: true
+    - job: mr-release-build
+  variables:
+    ENVIRONMENT: test
+    APP_NAME: broker
+  extends:
+    - .app-deploy-v2
+    - .deploy-environment
+    - .mr-release:rules:manual
+
+mr-release-deploy-preprod:
+  stage: deploy
+  manual_confirmation: 'Alert the team and QA before deploying it'
+  needs:
+    - job: mr-release-prepare-envs
+      artifacts: true
+    - job: mr-release-build
+  variables:
+    ENVIRONMENT: preprod
+    APP_NAME: broker
+  extends:
+    - .app-deploy-v2
+    - .deploy-environment
+    - .mr-release:rules:manual
+
+mr-release-deploy-prd:
+  stage: deploy
+  manual_confirmation: 'Is deployment to production approved by QA?'
+  needs:
+    - job: mr-release-prepare-envs
+      artifacts: true
+    - job: mr-release-deploy-preprod
+  variables:
+    ENVIRONMENT: prd
+    APP_NAME: broker
+  extends:
+    - .app-deploy-v2
+    - .deploy-environment
+    - .mr-release:rules:manual

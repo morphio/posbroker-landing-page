@@ -1,0 +1,102 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.appInput {
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: -0.4px;
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  padding: 0 24px;
+
+  background: var(--color-background-primary);
+  border: 1.5px solid var(--color-border-brand-secondary);
+  border-radius: 20px;
+
+  transition: 0.2s ease;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  padding: 22px 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+
+  background: none;
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    user-select: none;
+    color: var(--color-text-placeholder);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    background-clip: text;
+
+    -webkit-text-fill-color: var(--color-text-primary);
+  }
+}
+
+.error {
+  .wrapper {
+    border-color: var(--color-background-danger-primary);
+  }
+}
+
+.disabled {
+  .wrapper {
+    pointer-events: none;
+    background: #f4f4f5;
+  }
+}
+
+.notEditable {
+  /* stylelint-disable-next-line no-descending-specificity */
+  .input {
+    pointer-events: none;
+  }
+}
+
+.prefix {
+  display: flex;
+  color: var(--color-text-placeholder);
+}
+
+.suffix {
+  display: flex;
+}
+
+.errorText {
+  margin-top: 2px;
+  color: var(--color-background-danger-primary);
+  opacity: 0;
+  animation: fade-in 0.5s forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

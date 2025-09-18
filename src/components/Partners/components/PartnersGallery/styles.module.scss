@@ -1,0 +1,18 @@
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  column-gap: 24px;
+  justify-content: center;
+}
+
+.swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiperSlide {
+  width: max-content;
+  height: auto;
+}

@@ -1,0 +1,41 @@
+@use 'sass:map';
+
+@use './shadow';
+
+/* stylelint-disable scss/at-mixin-pattern */
+/* stylelint-disable-next-line scss/dollar-variable-pattern */
+$mediaBreakpoints: (
+  'tablet': 768px,
+  'desktop': 1272px,
+);
+
+@mixin useBreakpoint($breakpoint) {
+  /* stylelint-disable-next-line scss/no-global-function-names */
+  @media (min-width: map-get($mediaBreakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// Hack to prevent a hover delay after taping on UI elements
+@mixin useOnlyForMouse {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin useContainer() {
+  width: 100%;
+  max-width: 1326px;
+  margin: 0 auto;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  @include useBreakpoint('desktop') {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+}
+
+@mixin use-shadow($size) {
+  box-shadow: map.get(map.get(shadow.$sizes, $size), 'box-shadow');
+}

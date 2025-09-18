@@ -1,0 +1,138 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.heroBanner {
+  width: 100%;
+}
+
+.topBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 100%;
+
+  @include mixins.useBreakpoint('desktop') {
+    gap: 32px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.leftBox {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 320px;
+  max-width: 636px;
+
+  @include mixins.useBreakpoint('desktop') {
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+.underTitle {
+  font-weight: 600;
+  color: #8993a4;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include mixins.useBreakpoint('desktop') {
+    text-align: left;
+  }
+}
+
+.title {
+  margin: 0;
+
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: -0.84px;
+  white-space: pre-line;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 90px;
+    font-weight: 800;
+    line-height: 94px;
+    text-align: left;
+    letter-spacing: -1.8px;
+  }
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  letter-spacing: -0.36px;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 20px;
+    text-align: left;
+    letter-spacing: -0.4px;
+  }
+}
+
+.rightBox {
+  align-self: center;
+  max-width: 100%;
+}
+
+.bottomBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-around;
+
+  padding-top: 56px;
+
+  @include mixins.useBreakpoint('desktop') {
+    justify-content: space-between;
+    padding-top: 100px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  max-width: 318px;
+
+  text-align: center;
+
+  @include mixins.useBreakpoint('desktop') {
+    text-align: left;
+  }
+}
+
+.infoTitle {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 48px;
+  letter-spacing: -0.84px;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 54px;
+    line-height: 64px;
+    letter-spacing: 0.54px;
+  }
+}
+
+.infoValue {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.36px;
+}

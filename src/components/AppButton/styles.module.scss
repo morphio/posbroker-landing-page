@@ -1,0 +1,82 @@
+@use '@/assets/styles/mixins' as mixins;
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.appButton {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-text-always-white);
+
+  background: var(--color-background-brand-primary);
+  border: none;
+  border-radius: 20px;
+  outline: none;
+
+  transition: 0.2s ease;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  @include mixins.useOnlyForMouse {
+    &:not(.loading):hover {
+      background: var(--color-background-brand-primary-active);
+    }
+  }
+}
+
+.disabled {
+  cursor: default;
+  color: var(--color-text-always-white);
+  background: var(--color-background-neutral-secondary);
+}
+
+.loading {
+  cursor: default;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+.small {
+  padding: 10px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 12px;
+}
+
+.outline {
+  padding: 14px 8px;
+  color: var(--color-text-brand);
+  background: var(--color-background-primary);
+  border: 2px solid var(--color-border-brand-primary);
+
+  @include mixins.useOnlyForMouse {
+    &:not(.loading):hover {
+      color: var(--color-orange-600);
+      background: var(--color-background-primary);
+      border-color: var(--color-orange-600);
+    }
+  }
+}

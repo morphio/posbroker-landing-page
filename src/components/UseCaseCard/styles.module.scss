@@ -1,0 +1,37 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.useCaseCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  align-items: flex-start;
+
+  padding: 32px;
+
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-600);
+}
+
+.icon {
+  width: 48px;
+  color: var(--color-text-brand);
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+}
+
+.description {
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.36px;
+}

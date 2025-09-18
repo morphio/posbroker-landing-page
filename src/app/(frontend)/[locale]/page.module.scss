@@ -1,0 +1,52 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.heeroSection {
+  gap: 60px;
+  padding: 52px 0 80px;
+
+  @include mixins.useBreakpoint('desktop') {
+    padding: 100px 0;
+  }
+}
+
+.subtitle {
+  display: block;
+  width: 100%;
+  max-width: 444px;
+}
+
+.whenSection {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  width: 100%;
+}
+
+.ratingBox {
+  display: flex;
+  gap: var(--space-20);
+  align-items: flex-end;
+}
+
+.stars {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.048px;
+  letter-spacing: -0.308px;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.4px;
+  }
+}
+
+svg.star {
+  width: 40px;
+  height: 40px;
+}
+
+.button {
+  width: 100%;
+  max-width: 420px;
+}

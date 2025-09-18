@@ -1,0 +1,113 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.partnerCard {
+  position: relative;
+
+  overflow: hidden;
+
+  width: 302px;
+
+  background-color: #fff;
+  border: 1px solid var(--color-border-brand-secondary);
+  border-radius: 20px;
+
+  &.mobile {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 100%;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 194px;
+
+  background-color: var(--color-background-brand-secondary);
+}
+
+.logo {
+  width: 164px;
+  height: 88px;
+  object-fit: contain;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px;
+}
+
+.name {
+  overflow: hidden;
+
+  width: max-content;
+  max-width: 100%;
+
+  font-family: var(--font-family-web, Inter);
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 130%;
+  color: var(--color-text-primary);
+  text-overflow: ellipsis;
+  letter-spacing: 0;
+  white-space: nowrap;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+  }
+}
+
+.category {
+  font-family: var(--font-family-web, Inter);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 150%;
+  color: var(--color-text-primary);
+  letter-spacing: -0.36px;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 18px;
+  }
+}
+
+.labelContainer {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 2px 8px;
+
+  background: var(--color-background-brand-primary);
+  border-radius: var(--border-radius-200);
+
+  @include mixins.useBreakpoint('desktop') {
+    padding: var(--spacing-150) var(--spacing-300);
+  }
+}
+
+.label {
+  font-family: var(--font-family-web, Inter);
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 20px;
+  color: var(--color-text-primary-inverse, #fff);
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 14px;
+  }
+}

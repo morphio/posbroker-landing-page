@@ -1,0 +1,48 @@
+mr-dev-prepare-envs:
+  stage: prepare
+  extends:
+    - .mr-dev:rules:auto
+  script:
+    - echo "IMAGE_TAG=$(date +'%Y-%m-%d-%H-%M')-dev" >> prepare-dev.env
+    - echo "BUILD_ARG_NEXT_PUBLIC_RELEASE_DATE=$(date +'%Y-%m-%d-%H-%M')-dev" >> prepare-dev.env
+  artifacts:
+    reports:
+      dotenv: prepare-dev.env
+
+mr-dev-build:
+  stage: build
+  extends:
+    - .kaniko-build
+    - .mr-dev:rules:auto
+  needs:
+    - job: mr-dev-prepare-envs
+      artifacts: true
+
+mr-dev-deploy-dev:
+  stage: deploy
+  needs: 
+  - job: mr-dev-build
+  - job: mr-dev-prepare-envs
+    artifacts: true
+  variables:
+    ENVIRONMENT: dev
+    APP_NAME: broker
+  extends:
+    - .app-deploy-v2
+    - .deploy-uniq-environment
+    - .mr-dev:rules:manual
+
+mr-dev-deploy-test:
+  stage: deploy
+  manual_confirmation: 'Only QA users can deploy to the test environment'
+  needs:
+    - job: mr-dev-build
+    - job: mr-dev-prepare-envs
+      artifacts: true
+  variables:
+    ENVIRONMENT: test
+    APP_NAME: broker
+  extends:
+    - .app-deploy-v2
+    - .deploy-uniq-environment
+    - .mr-dev:rules:manual

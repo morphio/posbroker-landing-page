@@ -1,0 +1,24 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.useCases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  @include mixins.useBreakpoint('desktop') {
+    flex-direction: initial;
+  }
+}
+
+.useCase {
+  width: 100%;
+
+  @include mixins.useBreakpoint('tablet') {
+    width: calc(50% - 12px);
+  }
+
+  @include mixins.useBreakpoint('desktop') {
+    flex: 1;
+    width: auto;
+  }
+}

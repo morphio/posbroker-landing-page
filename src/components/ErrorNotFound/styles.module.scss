@@ -1,0 +1,59 @@
+@use '@/assets/styles/mixins' as mixins;
+
+.errorNotFound {
+  height: 100%;
+}
+
+.container {
+  @include mixins.useContainer;
+
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100%;
+  padding: 60px 0;
+}
+
+.title {
+  margin: 0;
+
+  font-size: 90px;
+  font-weight: 600;
+  line-height: 94px; /* 104.444% */
+  color: #000;
+  letter-spacing: -1.8px;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 160px;
+    line-height: 160px;
+  }
+}
+
+.subtitle {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #000;
+  text-align: center;
+  letter-spacing: -0.4px;
+
+  @include mixins.useBreakpoint('desktop') {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+.button {
+  width: 100%;
+  max-width: 420px;
+}
