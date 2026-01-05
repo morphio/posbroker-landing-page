@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
 
+import { messages as ruMessages } from '../messages/ru/index';
+import { messages as uzMessages } from '../messages/uz/index';
 import { routing } from './routing';
 
 export default getRequestConfig(async ({ requestLocale }) => {
@@ -11,20 +13,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale;
   }
 
-  // Use static imports for messages to avoid bundling issues
-  let messages;
-  try {
-    if (locale === 'ru') {
-      messages = (await import('../messages/ru/index')).messages;
-    } else if (locale === 'uz') {
-      messages = (await import('../messages/uz/index')).messages;
-    } else {
-      notFound();
-    }
-  } catch (error) {
-    console.error('Failed to load messages:', error);
-    notFound();
-  }
+  const messages = locale === 'ru' ? ruMessages : uzMessages;
 
   return {
     locale,
