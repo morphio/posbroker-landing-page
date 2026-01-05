@@ -16,61 +16,59 @@
     margin-left: auto;
   }
 
-  &:global {
-    &.swiper {
-      &.swiper-cards {
-        overflow: hidden;
+  &:global(.swiper) {
+    &:global(.swiper-cards) {
+      overflow: hidden;
+    }
+
+    :global(.swiper-slide) {
+      overflow: unset;
+      height: unset;
+      transition:
+        transform 0s,
+        opacity 0.2s ease;
+
+      &:not(.swiper-slide-prev, .swiper-slide-next, .swiper-slide-active) {
+        opacity: 0;
+      }
+    }
+
+    :global(.swiper-pagination) {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+
+      box-sizing: content-box;
+      height: 14px;
+      padding-top: 16px;
+    }
+
+    :global(.swiper-pagination-bullet) {
+      width: 10px;
+      height: 10px;
+
+      background: #cad0d9;
+      border-radius: 50%;
+
+      transition: 0.3s ease;
+
+      &:first-child,
+      &:last-child {
+        width: 6px;
+        height: 6px;
       }
 
-      .swiper-slide {
-        overflow: unset;
-        height: unset;
-        transition:
-          transform 0s,
-          opacity 0.2s ease;
-
-        &:not(.swiper-slide-prev, .swiper-slide-next, .swiper-slide-active) {
-          opacity: 0;
-        }
-      }
-
-      .swiper-pagination {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        justify-content: center;
-
-        box-sizing: content-box;
+      &.swiper-pagination-bullet-active {
+        width: 14px;
         height: 14px;
-        padding-top: 16px;
-      }
-
-      .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
-
-        background: #cad0d9;
-        border-radius: 50%;
-
-        transition: 0.3s ease;
-
-        &:first-child,
-        &:last-child {
-          width: 6px;
-          height: 6px;
-        }
-
-        &.swiper-pagination-bullet-active {
-          width: 14px;
-          height: 14px;
-          background: #ff4e00;
-        }
+        background: #ff4e00;
       }
     }
+  }
 
-    & > .swiper-wrapper {
-      align-items: stretch;
-    }
+  & > :global(.swiper-wrapper) {
+    align-items: stretch;
   }
 }
 
