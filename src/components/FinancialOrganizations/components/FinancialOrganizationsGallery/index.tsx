@@ -5,7 +5,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useIsDesktop } from '@/hooks/useIsDesktop';
-import { FinancialOrganization } from '@/modules/admin/payload.types';
+import { FinancialOrganization } from '../../types';
 
 import FinancialOrganizationCard from '../FinancialOrganizationCard';
 

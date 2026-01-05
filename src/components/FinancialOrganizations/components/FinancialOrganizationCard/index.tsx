@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 
 import { Link } from '@/i18n/navigation';
-import { FinancialOrganization } from '@/modules/admin/payload.types';
+import { FinancialOrganization } from '../../types';
 
 import styles from './styles.module.scss';
 

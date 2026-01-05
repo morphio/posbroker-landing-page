@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import AppTooltip from '@/components/AppTooltip';
 import { Link } from '@/i18n/navigation';
-import { Partner } from '@/modules/admin/payload.types';
+import { Partner } from '../../types';
 
 import styles from './styles.module.scss';
 

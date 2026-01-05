@@ -19,8 +19,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@nexo-next/cdk/*": ["./external/@nexo-next/cdk/*"],
-      "@payload-config": ["./src/modules/admin/payload.config.ts"]
+      "@nexo-next/cdk/*": ["./external/@nexo-next/cdk/*"]
     },
     "target": "ES2017"
   },

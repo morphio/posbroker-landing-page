@@ -25,8 +25,6 @@ export default [
       '**/*.d.ts',
       '**/*.mjs',
       '.next/**/*',
-      'src/app/(payload)/lp-admin/importMap.js',
-      'src/migrations/index.ts',
     ],
   },
   {

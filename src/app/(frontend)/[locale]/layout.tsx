@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 
-import AdminBar from '@/components/AdminBar';
 import AppFooter from '@/components/AppFooter';
 import AppHeader from '@/components/AppHeader';
 import GTMNonScript from '@/components/GTMNonScript';
@@ -86,7 +85,6 @@ export default async function RootLayout({
         <GTMNonScript />
         <NextIntlClientProvider messages={messages}>
           <div className={styles.layout}>
-            <AdminBar />
             <AppHeader className={styles.header} />
             <main className={styles.main}>{children}</main>
             <AppFooter className={styles.footer} />
