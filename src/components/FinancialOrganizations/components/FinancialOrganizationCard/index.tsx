@@ -51,7 +51,7 @@ const FinancialOrganizationCard: React.FC<FinancialOrganizationCardProps> = ({
         </div>
       )}
 
-      {typeof logo !== 'number' && logo.url && (
+      {logo && typeof logo !== 'number' && logo.url && (
         <Image
           height={isDesktop ? 72 : 64}
           src={logo.url}
