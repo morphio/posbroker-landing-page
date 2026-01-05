@@ -5,7 +5,7 @@ import '@/assets/styles/main.scss';
 
 export const metadata: Metadata = {
   // TODO: Move to .env variable
-  metadataBase: new URL('https://foydabroker.uz'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://foydabroker.uz'),
 };
 
 export default function RootLayout({

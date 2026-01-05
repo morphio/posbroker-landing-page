@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
+import { APP_CONFIG } from '@/core/config';
+
 import CubeSvg from '@/assets/icons/cube.svg';
 import DataflowSvg from '@/assets/icons/dataflow.svg';
 import FaceWinkSvg from '@/assets/icons/face-wink.svg';
@@ -31,7 +33,7 @@ export async function generateMetadata({
     title: t('meta.title'),
     description: t('meta.description'),
     alternates: {
-      canonical: `https://foydabroker.uz/${locale}/organisations`,
+      canonical: `${APP_CONFIG.SITE_URL}/${locale}/organisations`,
     },
   };
 }

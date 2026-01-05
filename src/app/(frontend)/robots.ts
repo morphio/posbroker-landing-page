@@ -28,6 +28,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: ['/images/screenshot.jpg', '/favicon.ico'],
       },
     ],
-    sitemap: 'https://foydabroker.uz/sitemap.xml',
+    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://foydabroker.uz'}/sitemap.xml`,
   };
 }

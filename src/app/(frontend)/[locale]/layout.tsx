@@ -20,7 +20,7 @@ const schemaData: Record<string, object> = {
     '@context': 'http://www.schema.org',
     '@type': 'Organization',
     name: 'FoyDa',
-    url: 'https://foydabroker.uz/ru',
+    url: `${APP_CONFIG.SITE_URL}/ru`,
     description:
       'Это сервис делающий приобретение товаров или услуг в рассрочку комфортным и быстрым. Мы сотрудничаем с несколькими банками и финансовыми организациями для повышения вероятности одобрения рассрочки. Наша цель - помочь вам сделать желанную покупку быстро и комфортно для семейного бюджета',
     email: 'rahmat@foydabroker.uz',
@@ -29,7 +29,7 @@ const schemaData: Record<string, object> = {
     '@context': 'http://www.schema.org',
     '@type': 'Organization',
     name: 'FoyDa',
-    url: 'https://foydabroker.uz/uz',
+    url: `${APP_CONFIG.SITE_URL}/uz`,
     description:
       'Bu xizmat tovarlar yoki xizmatlarni bo‘lib-bo‘lib sotib olishni qulay va tez amalga oshiradi. Biz bo‘lib-bo‘lib to‘lashni tasdiqlash ehtimolini oshirish uchun bir nechta bank va moliyaviy tashkilotlar bilan hamkorlik qilamiz. Bizning maqsadimiz — xohlagan xaridingizni oila byudjetiga qulay tarzda tezda amalga oshirishga yordam berishdir.',
     email: 'rahmat@foydabroker.uz',
@@ -52,7 +52,7 @@ export async function generateMetadata({
     description: t('meta.description'),
     keywords: t('meta.keywords'),
     alternates: {
-      canonical: `https://foydabroker.uz/${locale}`,
+      canonical: `${APP_CONFIG.SITE_URL}/${locale}`,
     },
   };
 }

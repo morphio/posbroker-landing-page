@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
+import { APP_CONFIG } from '@/core/config';
+
 import BarLineChartSvg from '@/assets/icons/bar-line-chart.svg';
 import CreditCardCheckSvg from '@/assets/icons/credit-card-check.svg';
 import CubeSvg from '@/assets/icons/cube.svg';
@@ -35,7 +37,7 @@ export async function generateMetadata({
     title: t('meta.title'),
     description: t('meta.description'),
     alternates: {
-      canonical: `https://foydabroker.uz/${locale}/sellers`,
+      canonical: `${APP_CONFIG.SITE_URL}/${locale}/sellers`,
     },
   };
 }

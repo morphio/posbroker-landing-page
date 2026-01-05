@@ -5,7 +5,7 @@ import generateSitemap from '@nexo-next/cdk/utils/generateSitemap';
 
 export const dynamic = 'force-static';
 
-const host = 'https://foydabroker.uz';
+const host = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://foydabroker.uz';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return generateSitemap({
