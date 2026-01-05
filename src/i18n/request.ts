@@ -1,26 +1,30 @@
 import { notFound } from 'next/navigation';
-import { hasLocale } from 'next-intl';
 import { getRequestConfig } from 'next-intl/server';
 
 import { routing } from './routing';
 
-interface Messages {
-  [key: string]: string | Messages;
-}
-
 export default getRequestConfig(async ({ requestLocale }) => {
-  const requested = await requestLocale;
+  let locale = await requestLocale;
 
-  if (!hasLocale(routing.locales, requested)) {
-    notFound();
+  // Ensure that a valid locale is used
+  if (!locale || !routing.locales.includes(locale as any)) {
+    locale = routing.defaultLocale;
   }
 
-  const locale = requested;
-
-  const importedModule = (await import(`../messages/${locale}/index.ts`)) as {
-    messages: Messages;
-  };
-  const messages = importedModule.messages;
+  // Use static imports for messages to avoid bundling issues
+  let messages;
+  try {
+    if (locale === 'ru') {
+      messages = (await import('../messages/ru/index')).messages;
+    } else if (locale === 'uz') {
+      messages = (await import('../messages/uz/index')).messages;
+    } else {
+      notFound();
+    }
+  } catch (error) {
+    console.error('Failed to load messages:', error);
+    notFound();
+  }
 
   return {
     locale,
