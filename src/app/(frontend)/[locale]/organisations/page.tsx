@@ -36,6 +36,11 @@ export async function generateMetadata({
   };
 }
 
+export async function generateStaticParams() {
+  return [{ locale: 'ru' }, { locale: 'uz' }];
+}
+
+
 export default function Organisations() {
   const locale = useLocale() as 'ru' | 'uz';
   const t = useTranslations('organisations');

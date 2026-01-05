@@ -40,6 +40,11 @@ export async function generateMetadata({
   };
 }
 
+export async function generateStaticParams() {
+  return [{ locale: 'ru' }, { locale: 'uz' }];
+}
+
+
 export default function Sellers() {
   const locale = useLocale() as 'uz' | 'ru';
   const t = useTranslations('sellers');
