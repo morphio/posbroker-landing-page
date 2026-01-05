@@ -57,9 +57,7 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  return [{ locale: 'ru' }, { locale: 'uz' }];
-}
+
 
 
 export default async function RootLayout({

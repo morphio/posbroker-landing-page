@@ -20,9 +20,7 @@ import { shuffleArray } from '@/utils';
 
 import styles from './page.module.scss';
 
-export async function generateStaticParams() {
-  return [{ locale: 'ru' }, { locale: 'uz' }];
-}
+
 
 export default function Home() {
   const locale = useLocale() as 'uz' | 'ru';
