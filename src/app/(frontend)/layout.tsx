@@ -3,9 +3,11 @@ import 'swiper/css';
 
 import '@/assets/styles/main.scss';
 
+import { APP_CONFIG } from '@/core/config';
+
 export const metadata: Metadata = {
   // TODO: Move to .env variable
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://foydabroker.uz'),
+  metadataBase: new URL(APP_CONFIG.SITE_URL),
 };
 
 export default function RootLayout({
