@@ -50,7 +50,7 @@ const PartnerCard: React.FC<PartnerCardProps> = ({
       )}
 
       <div className={styles.logoContainer}>
-        {typeof logo !== 'number' && logo.url && (
+        {logo && typeof logo !== 'number' && logo.url && (
           <img
             src={logo.url}
             alt={logo.alt ?? ''}
@@ -69,7 +69,7 @@ const PartnerCard: React.FC<PartnerCardProps> = ({
           <span className={styles.name}>{name}</span>
         </AppTooltip>
 
-        {typeof category !== 'number' && (
+        {category && typeof category !== 'number' && (
           <span className={styles.category}>{category.name}</span>
         )}
       </div>
